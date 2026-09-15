@@ -4,6 +4,8 @@ An AI-powered hospital appointment scheduling system with disease prediction and
 
 ## 🏗️ System Architecture
 
+![System Architecture](docs/images/architecture.png)
+
 ```
 Frontend (React + Vite)     ←→     Backend (FastAPI + Python)
 ├── Symptom Chat Interface           ├── Disease Prediction Model
@@ -32,6 +34,24 @@ Frontend (React + Vite)     ←→     Backend (FastAPI + Python)
 - **RESTful API**: Complete API with OpenAPI documentation
 - **CORS Support**: Configured for frontend integration
 - **Error Handling**: Comprehensive error responses
+
+## 📸 Screenshots
+
+### Symptom Chat Interface
+![Chat Interface](docs/images/chat-interface.png)
+AI assistant collects symptoms conversationally and recommends a department + doctor seniority level in real time.
+
+### AI-Recommended Booking Flow
+![Booking Flow](docs/images/booking-flow.png)
+Booking form pre-filled with AI recommendations, showing available doctors, qualifications, and time slots.
+
+### Automated Appointment Confirmation
+![Email Confirmation](docs/images/email-confirmation.png)
+Automated email confirmation sent immediately after booking, with doctor, department, date, time, and booking ID.
+
+### Hospital Operations Dashboard
+![Analytics Dashboard](docs/images/analytics-dashboard.png)
+Admin-facing Looker Studio dashboard tracking total appointments, severe case rate, AI booking adoption rate, cancellation rate, and department/doctor workload breakdowns.
 
 ## 🔧 Technology Stack
 
@@ -163,6 +183,12 @@ The frontend communicates with the backend through the API service layer (`src/s
 4. **ML Analysis**: Backend processes symptoms through trained model
 5. **Results**: System returns department, doctor level, and severity
 6. **Booking**: User proceeds with AI-recommended appointment
+
+## 📅 Project Timeline
+
+![Project Gantt Chart](docs/images/project-timeline.png)
+
+Built over ~7 months, covering requirement analysis, dataset collection, ML model integration, backend/frontend development, chatbot integration, testing, and final documentation.
 
 ## 📁 Project Structure
 
@@ -301,3 +327,5 @@ For more detailed, task-focused docs, see the `docs/` folder:
 - `docs/Troubleshooting.md` – Common issues and resolutions
 - `docs/ClassDiagram.md` – System class diagrams (backend and frontend)
 - `docs/Project_Report.md` – Comprehensive project report following academic guidelines
+
+---
