@@ -1,0 +1,4 @@
+/* Import the main CSS file with all our styles */
+@import './styles/main.css';
+
+/* Additional global styles can be added here */

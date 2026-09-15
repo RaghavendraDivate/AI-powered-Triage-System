@@ -1,0 +1,33 @@
+/* NotFound page styles */
+.not-found-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f4f6; /* bg-gray-100 */
+}
+
+.not-found-content {
+  text-align: center;
+}
+
+.not-found-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.not-found-message {
+  font-size: 1.25rem;
+  color: #4b5563; /* text-gray-600 */
+  margin-bottom: 1rem;
+}
+
+.not-found-link {
+  color: #3b82f6; /* text-blue-500 */
+  text-decoration: underline;
+}
+
+.not-found-link:hover {
+  color: #1d4ed8; /* text-blue-700 */
+}

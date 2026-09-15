@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Appointment Notification</title>
+     <style>
+        body { font-family: sans-serif; line-height: 1.6; }
+        ul { list-style: none; padding: 0; }
+        li { margin-bottom: 5px; }
+        strong { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <p>Hello Dr. {{ doctor_name }},</p>
+    <p>A new appointment has been booked in your schedule via the AI Assistant:</p>
+    <ul>
+        <li><strong>Patient Name:</strong> {{ patient_name }}</li>
+        <li><strong>Date:</strong> {{ appointment_date }}</li>
+        <li><strong>Time:</strong> {{ appointment_time }}</li>
+        <li><strong>Department:</strong> {{ department }}</li>
+        <li><strong>Booking ID:</strong> {{ booking_id }}</li>
+        <li><strong>Reason/Symptoms:</strong> {{ symptoms }}</li>
+    </ul>
+    <p>Please check your main scheduling system for updates.</p>
+    <p>Regards,<br>Hospital AI Assistant System</p>
+</body>
+</html>

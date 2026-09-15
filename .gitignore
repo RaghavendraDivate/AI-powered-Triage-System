@@ -1,0 +1,11 @@
+node_modules/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.env
+venv/
+Backend/app/data/*.joblib
+*.json
+ai-chatbot-*.json
+ai-chatbot-475804-5e426f9b662a.json
+*.csv

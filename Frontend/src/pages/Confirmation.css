@@ -1,0 +1,731 @@
+/* Confirmation.css - Enhanced Professional Medical Confirmation */
+
+/* ===== ROOT VARIABLES & THEME ===== */
+:root {
+  /* Medical Professional Color Palette */
+  --medical-primary: #0066cc;
+  --medical-primary-dark: #0052a3;
+  --medical-primary-light: #e6f3ff;
+  --medical-secondary: #f8f9fa;
+  --medical-success: #10b981;
+  --medical-warning: #f59e0b;
+  --medical-danger: #ef4444;
+  --medical-info: #3b82f6;
+  --medical-teal: #0d9488;
+  --medical-purple: #8b5cf6;
+  
+  /* Neutral Colors */
+  --medical-text: #1f2937;
+  --medical-text-muted: #6b7280;
+  --medical-border: #e5e7eb;
+  --medical-background: #ffffff;
+  
+  /* Shadows */
+  --medical-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --medical-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --medical-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --medical-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --medical-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Border Radius */
+  --medical-radius-sm: 0.375rem;
+  --medical-radius: 0.5rem;
+  --medical-radius-md: 0.75rem;
+  --medical-radius-lg: 1rem;
+  
+  /* Spacing */
+  --medical-spacing-xs: 0.5rem;
+  --medical-spacing-sm: 0.75rem;
+  --medical-spacing: 1rem;
+  --medical-spacing-lg: 1.5rem;
+  --medical-spacing-xl: 2rem;
+  
+  /* Animation */
+  --medical-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --medical-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ===== MAIN CONTAINER ===== */
+.confirmation-container {
+  margin-top: 4rem;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.confirmation-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background: linear-gradient(135deg, var(--medical-primary-light) 0%, rgba(59, 130, 246, 0.1) 50%, transparent 100%);
+  opacity: 0.6;
+  z-index: 0;
+}
+
+.confirmation-content {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: var(--medical-spacing-xl) var(--medical-spacing);
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 640px) {
+  .confirmation-content {
+    padding-left: var(--medical-spacing-lg);
+    padding-right: var(--medical-spacing-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .confirmation-content {
+    padding-left: var(--medical-spacing-xl);
+    padding-right: var(--medical-spacing-xl);
+  }
+}
+
+/* ===== HEADER SECTION ===== */
+.confirmation-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.8s var(--medical-ease);
+}
+
+.confirmation-icon-container {
+  width: 5rem;
+  height: 5rem;
+  background: linear-gradient(135deg, var(--medical-success) 0%, var(--medical-teal) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--medical-spacing) auto;
+  box-shadow: 
+    var(--medical-shadow-lg),
+    0 8px 25px rgba(16, 185, 129, 0.3);
+  transition: all 0.4s var(--medical-ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.confirmation-icon-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  padding: 2px;
+  background: linear-gradient(135deg, transparent 30%, rgba(255, 255, 255, 0.4));
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
+}
+
+.confirmation-icon-container:hover {
+  transform: scale(1.05) rotate(5deg);
+  box-shadow: 
+    var(--medical-shadow-xl),
+    0 12px 30px rgba(16, 185, 129, 0.4);
+}
+
+.confirmation-icon {
+  height: 2.5rem;
+  width: 2.5rem;
+  color: white;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.confirmation-title {
+  font-size: clamp(1.875rem, 4vw, 2.5rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--medical-success) 0%, var(--medical-teal) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: var(--medical-spacing);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.confirmation-description {
+  font-size: 1.125rem;
+  color: var(--medical-text-muted);
+  max-width: 36rem;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* ===== GRID LAYOUT ===== */
+.confirmation-grid {
+  display: grid;
+  gap: var(--medical-spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .confirmation-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.confirmation-grid-full {
+  grid-column: span 1;
+}
+
+@media (min-width: 768px) {
+  .confirmation-grid-full {
+    grid-column: span 2;
+  }
+}
+
+/* ===== CARD STYLES ===== */
+.confirmation-grid .card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--medical-radius-lg);
+  box-shadow: 
+    var(--medical-shadow-lg),
+    0 0 0 1px rgba(255, 255, 255, 0.9);
+  transition: all 0.4s var(--medical-ease);
+  position: relative;
+  overflow: hidden;
+  animation: slideInUp 0.6s var(--medical-ease);
+}
+
+.confirmation-grid .card:nth-child(1) { animation-delay: 0.1s; }
+.confirmation-grid .card:nth-child(2) { animation-delay: 0.2s; }
+.confirmation-grid .card:nth-child(3) { animation-delay: 0.3s; }
+.confirmation-grid .card:nth-child(4) { animation-delay: 0.4s; }
+
+.confirmation-grid .card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--medical-primary), transparent);
+}
+
+.confirmation-grid .card:hover {
+  box-shadow: 
+    var(--medical-shadow-xl),
+    0 0 0 1px rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+}
+
+.confirmation-grid .card-header {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+  padding: var(--medical-spacing-lg);
+}
+
+.confirmation-grid .card-title {
+  font-weight: 700;
+  color: var(--medical-text);
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.confirmation-grid .card-content {
+  padding: var(--medical-spacing-lg);
+}
+
+.card-content-spacing {
+  padding-top: var(--medical-spacing-lg);
+  padding-bottom: var(--medical-spacing-lg);
+}
+
+/* ===== DOCTOR INFO STYLES ===== */
+.doctor-info {
+  display: flex;
+  align-items: center;
+  gap: var(--medical-spacing);
+  margin-bottom: var(--medical-spacing-lg);
+  padding: var(--medical-spacing);
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.8) 0%, rgba(241, 245, 249, 0.8) 100%);
+  border-radius: var(--medical-radius);
+  border: 1px solid rgba(229, 231, 235, 0.8);
+  transition: all 0.3s var(--medical-ease);
+}
+
+.doctor-info:hover {
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(241, 245, 249, 0.95) 100%);
+  border-color: var(--medical-primary-light);
+  transform: translateX(4px);
+}
+
+.doctor-avatar {
+  height: 3.5rem;
+  width: 3.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: var(--medical-shadow);
+}
+
+.doctor-avatar-fallback {
+  background: linear-gradient(135deg, var(--medical-primary) 0%, var(--medical-info) 100%);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.doctor-details {
+  flex: 1;
+}
+
+.doctor-name {
+  font-weight: 700;
+  color: var(--medical-text);
+  font-size: 1.125rem;
+  margin-bottom: 0.25rem;
+}
+
+.doctor-specialization {
+  font-size: 0.875rem;
+  color: var(--medical-text-muted);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+/* ===== INFO GROUP STYLES ===== */
+.content-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--medical-spacing);
+}
+
+.info-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--medical-spacing-sm);
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: var(--medical-spacing-sm);
+  padding: 0.75rem;
+  background: rgba(248, 250, 252, 0.8);
+  border-radius: var(--medical-radius);
+  border-left: 3px solid var(--medical-primary);
+  transition: all 0.3s var(--medical-ease);
+}
+
+.info-item:hover {
+  background: rgba(248, 250, 252, 1);
+  transform: translateX(4px);
+  border-left-color: var(--medical-success);
+}
+
+.info-icon {
+  height: 1.25rem;
+  width: 1.25rem;
+  color: var(--medical-primary);
+  flex-shrink: 0;
+}
+
+.info-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--medical-text);
+}
+
+/* ===== AI NOTICE STYLES ===== */
+.ai-notice {
+  padding: var(--medical-spacing);
+  background: linear-gradient(135deg, rgba(239, 246, 255, 0.9) 0%, rgba(219, 234, 254, 0.9) 100%);
+  border-radius: var(--medical-radius);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  margin: var(--medical-spacing) 0;
+  backdrop-filter: blur(10px);
+  animation: gentlePulse 3s infinite;
+}
+
+.ai-notice-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.ai-notice-icon {
+  height: 1.25rem;
+  width: 1.25rem;
+  color: var(--medical-info);
+}
+
+.ai-notice-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--medical-info);
+}
+
+.ai-notice-text {
+  font-size: 0.75rem;
+  color: var(--medical-info);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* ===== SYMPTOMS STYLES ===== */
+.symptoms-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 0;
+}
+
+.symptoms-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--medical-text);
+}
+
+.symptoms-text {
+  font-size: 0.875rem;
+  color: var(--medical-text);
+  background: rgba(248, 250, 252, 0.8);
+  padding: var(--medical-spacing);
+  border-radius: var(--medical-radius);
+  border-left: 3px solid var(--medical-teal);
+  line-height: 1.6;
+  font-weight: 400;
+  transition: all 0.3s var(--medical-ease);
+}
+
+.symptoms-text:hover {
+  background: rgba(248, 250, 252, 1);
+  border-left-color: var(--medical-success);
+}
+
+/* ===== PREPARATION INSTRUCTIONS ===== */
+.prep-section {
+  display: grid;
+  gap: var(--medical-spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .prep-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.prep-title {
+  font-weight: 700;
+  color: var(--medical-text);
+  margin-bottom: var(--medical-spacing);
+  font-size: 1.125rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.prep-title::before {
+  content: '';
+  width: 4px;
+  height: 1.25rem;
+  background: linear-gradient(135deg, var(--medical-primary) 0%, var(--medical-teal) 100%);
+  border-radius: 2px;
+}
+
+.prep-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--medical-spacing-sm);
+}
+
+.prep-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--medical-spacing-sm);
+  padding: 0.75rem;
+  background: rgba(248, 250, 252, 0.8);
+  border-radius: var(--medical-radius);
+  border: 1px solid rgba(229, 231, 235, 0.5);
+  transition: all 0.3s var(--medical-ease);
+}
+
+.prep-item:hover {
+  background: rgba(248, 250, 252, 1);
+  transform: translateX(4px);
+  border-color: var(--medical-success-light);
+}
+
+.prep-icon {
+  height: 1rem;
+  width: 1rem;
+  color: var(--medical-success);
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+}
+
+.prep-item span {
+  font-size: 0.875rem;
+  color: var(--medical-text);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.notes-item {
+  font-size: 0.875rem;
+  color: var(--medical-text-muted);
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: var(--medical-radius-sm);
+  border-left: 2px solid var(--medical-warning);
+  transition: all 0.3s var(--medical-ease);
+}
+
+.notes-item:hover {
+  background: rgba(255, 255, 255, 1);
+  border-left-color: var(--medical-primary);
+}
+
+/* ===== ACTION BUTTONS ===== */
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--medical-spacing);
+  justify-content: center;
+  padding-top: var(--medical-spacing);
+}
+
+@media (min-width: 640px) {
+  .action-buttons {
+    flex-direction: row;
+  }
+}
+
+.action-buttons .button {
+  padding: 1rem 2rem;
+  border-radius: var(--medical-radius);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.4s var(--medical-ease);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.action-buttons .button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s var(--medical-ease);
+}
+
+.action-buttons .button:hover::before {
+  left: 100%;
+}
+
+.action-buttons .button:first-child {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(229, 231, 235, 0.8);
+  color: var(--medical-text);
+  box-shadow: var(--medical-shadow);
+}
+
+.action-buttons .button:first-child:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: var(--medical-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--medical-shadow-lg);
+}
+
+.action-buttons .button:last-child {
+  background: linear-gradient(135deg, var(--medical-primary) 0%, var(--medical-info) 100%);
+  color: white;
+  border: none;
+  box-shadow: 
+    var(--medical-shadow-lg),
+    0 4px 12px rgba(0, 102, 204, 0.3);
+}
+
+.action-buttons .button:last-child:hover {
+  background: linear-gradient(135deg, var(--medical-primary-dark) 0%, #2563eb 100%);
+  transform: translateY(-2px);
+  box-shadow: 
+    var(--medical-shadow-xl),
+    0 6px 16px rgba(0, 102, 204, 0.4);
+}
+
+.action-button-icon {
+  height: 1.25rem;
+  width: 1.25rem;
+  transition: transform 0.3s var(--medical-ease);
+}
+
+.action-buttons .button:hover .action-button-icon {
+  transform: translateY(-1px);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gentlePulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 1023px) {
+  .confirmation-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .confirmation-grid-full {
+    grid-column: span 1;
+  }
+  
+  .prep-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .confirmation-content {
+    padding: var(--medical-spacing) var(--medical-spacing-sm);
+  }
+  
+  .confirmation-header {
+    margin-bottom: var(--medical-spacing-lg);
+  }
+  
+  .confirmation-icon-container {
+    width: 4rem;
+    height: 4rem;
+  }
+  
+  .confirmation-icon {
+    height: 2rem;
+    width: 2rem;
+  }
+  
+  .confirmation-title {
+    font-size: 1.75rem;
+  }
+  
+  .confirmation-description {
+    font-size: 1rem;
+  }
+  
+  .doctor-info {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--medical-spacing-sm);
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .action-buttons .button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== FOCUS VISIBILITY ===== */
+.action-buttons .button:focus-visible,
+.info-item:focus-visible,
+.prep-item:focus-visible {
+  outline: 2px solid var(--medical-primary);
+  outline-offset: 2px;
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  .confirmation-container::before,
+  .action-buttons,
+  .ai-notice {
+    display: none !important;
+  }
+  
+  .confirmation-grid .card {
+    box-shadow: none !important;
+    border: 1px solid #000 !important;
+    break-inside: avoid;
+  }
+  
+  .confirmation-icon-container {
+    background: #000 !important;
+  }
+  
+  .confirmation-icon {
+    color: white !important;
+  }
+}

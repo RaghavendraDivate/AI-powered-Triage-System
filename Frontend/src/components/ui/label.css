@@ -1,0 +1,19 @@
+/* Label component styles */
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  color: var(--foreground);
+  user-select: none;
+}
+
+.label-required::after {
+  content: "*";
+  color: var(--destructive);
+  margin-left: 0.25rem;
+}
+
+.label-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

@@ -1,0 +1,42 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+    <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0.3" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main background -->
+  <rect width="1200" height="300" fill="url(#headerGradient)" rx="15" ry="15" />
+  
+  <!-- Decorative elements -->
+  <circle cx="200" cy="150" r="100" fill="url(#circleGradient)" />
+  <circle cx="1000" cy="100" r="80" fill="url(#circleGradient)" />
+  <circle cx="900" cy="250" r="50" fill="url(#circleGradient)" />
+  
+  <!-- Medical symbols -->
+  <g transform="translate(600, 150)" fill="white" opacity="0.8">
+    <!-- Caduceus symbol (simplified) -->
+    <rect x="-5" y="-80" width="10" height="160" rx="5" ry="5" />
+    
+    <!-- Snakes -->
+    <path d="M -5,-60 C -30,-40 -40,-10 -30,20 C -20,50 0,60 0,80" stroke="white" stroke-width="8" fill="none" />
+    <path d="M 5,-60 C 30,-40 40,-10 30,20 C 20,50 0,60 0,80" stroke="white" stroke-width="8" fill="none" />
+    
+    <!-- Snake heads -->
+    <circle cx="-30" cy="20" r="8" fill="white" />
+    <circle cx="30" cy="20" r="8" fill="white" />
+    
+    <!-- Wings -->
+    <path d="M 0,-50 C -20,-70 -40,-60 -50,-40 C -30,-45 -10,-40 0,-30 C 10,-40 30,-45 50,-40 C 40,-60 20,-70 0,-50" fill="white" />
+  </g>
+  
+  <!-- Text elements -->
+  <text x="600" y="80" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="white" text-anchor="middle">Our Medical Specialists</text>
+  <text x="600" y="130" font-family="Arial, sans-serif" font-size="20" fill="white" text-anchor="middle" opacity="0.9">Expert care from our team of dedicated healthcare professionals</text>
+</svg>

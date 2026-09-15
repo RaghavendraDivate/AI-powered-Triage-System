@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointment Confirmation</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; }
+        ul { list-style: none; padding: 0; }
+        li { margin-bottom: 5px; }
+        strong { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <p>Dear {{ patient_name }},</p>
+    <p>Your appointment has been successfully booked with the Hospital AI Assistant!</p>
+    <p><strong>Appointment Details:</strong></p>
+    <ul>
+        <li><strong>Doctor:</strong> {{ doctor_name }} ({{ doctor_level }})</li>
+        <li><strong>Department:</strong> {{ department }}</li>
+        <li><strong>Date:</strong> {{ appointment_date }}</li>
+        <li><strong>Time:</strong> {{ appointment_time }}</li>
+        <li><strong>Booking ID:</strong> {{ booking_id }}</li>
+        <li><strong>Symptoms Provided:</strong> {{ symptoms }}</li>
+    </ul>
+    <p>Thank you for choosing our hospital. Please arrive 15 minutes early for check-in.</p>
+    <p>Sincerely,<br>The Hospital AI Assistant Team</p>
+</body>
+</html>
