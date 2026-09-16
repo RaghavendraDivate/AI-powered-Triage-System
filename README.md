@@ -1,146 +1,271 @@
-# Hospital Appointment Scheduling System
+# AI-Powered Hospital Appointment Scheduling & Triage System 🏥
 
-An AI-powered hospital appointment scheduling system with disease prediction and automatic doctor recommendations based on symptoms and severity analysis.
+[![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Machine Learning](https://img.shields.io/badge/Machine%20Learning-FF6F00?style=for-the-badge&logo=scikitlearn&logoColor=white)](#)
+[![Full Stack](https://img.shields.io/badge/Full%20Stack-00D084?style=for-the-badge&logo=fullstack&logoColor=white)](#)
+
+---
+
+## 📌 Project Overview
+
+A **full-stack AI-powered hospital appointment scheduling system** with intelligent disease prediction, automatic doctor recommendations, and clinical decision support.
+
+Combines **machine learning disease classification** with an interactive **React frontend** and **FastAPI backend** to streamline patient intake, triage, and appointment booking workflows.
+
+---
+
+## 🎯 Key Features
+
+### 🧠 AI & Machine Learning
+- **Disease Prediction:** ML model classifies symptoms to predicted disease
+- **Department Routing:** Automatically routes patients to appropriate medical departments
+- **Doctor Level Assessment:** Determines required doctor expertise (junior/senior)
+- **Risk Stratification:** Identifies severe cases for priority handling
+- **Treatment Recommendations:** Suggests appropriate care pathways
+
+### 💻 Frontend (React + Vite)
+- **Interactive Symptom Chat:** AI-powered conversational symptom collection
+- **Smart Doctor Recommendations:** AI suggests doctors based on symptoms
+- **Dual Booking Modes:**
+  - AI Mode: Pre-filled with ML recommendations
+  - Manual Mode: User-selected doctors
+- **Real-time Validation:** Form validation and error handling
+- **Responsive Design:** Mobile-friendly interface
+- **Appointment Management:** Complete booking flow with confirmation
+
+### 🔧 Backend (FastAPI + Python)
+- **RESTful API:** Complete API with OpenAPI documentation
+- **Disease Prediction Engine:** Scikit-learn ML models
+- **Department Mapping:** Rule-based department routing
+- **Appointment Scheduling:** Database-backed scheduling logic
+- **CORS Support:** Frontend integration ready
+- **Error Handling:** Comprehensive error responses and logging
+
+### 📊 Analytics & Monitoring
+- **Admin Dashboard:** Looker Studio analytics dashboard
+- **KPIs Tracked:**
+  - Total appointments & trends
+  - Severe case rate
+  - AI booking adoption rate
+  - Cancellation rate
+  - Department/doctor workload
+
+---
 
 ## 🏗️ System Architecture
 
-![System Architecture](docs/images/architecture.png)
+```
+┌─────────────────────────────────────────────────────────┐
+│              USER INTERACTION LAYER                     │
+│  Frontend (React + Vite) - http://localhost:5173        │
+│  ├── Symptom Chat Interface                             │
+│  ├── AI Recommendations Display                         │
+│  ├── Doctor Selection                                   │
+│  └── Booking Confirmation                               │
+└────────────────────┬────────────────────────────────────┘
+                     │ HTTP/REST
+┌────────────────────▼────────────────────────────────────┐
+│              API LAYER                                  │
+│  FastAPI Backend - http://localhost:8000                │
+│  ├── /predict - Disease Prediction                      │
+│  ├── /departments - Get departments                     │
+│  ├── /doctors - Get available doctors                   │
+│  └── /book - Book appointment                           │
+└────────────────────┬────────────────────────────────────┘
+                     │ Model Inference
+┌────────────────────▼────────────────────────────────────┐
+│              ML/LOGIC LAYER                             │
+│  ├── Disease Prediction Model (Scikit-learn)            │
+│  ├── Department Mapper                                  │
+│  ├── Doctor Level Classifier                            │
+│  └── Appointment Scheduler                              │
+└────────────────────┬────────────────────────────────────┘
+                     │ CRUD Operations
+┌────────────────────▼────────────────────────────────────┐
+│              DATA LAYER                                 │
+│  ├── Database (PostgreSQL/SQLite)                       │
+│  ├── Doctor Registry                                    │
+│  ├── Appointment Records                                │
+│  └── Patient History                                    │
+└─────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📁 Project Structure
 
 ```
-Frontend (React + Vite)     ←→     Backend (FastAPI + Python)
-├── Symptom Chat Interface           ├── Disease Prediction Model
-├── AI Results Display               ├── Department Mapping
-├── Doctor Selection                 ├── Appointment Scheduling
-├── Booking Confirmation             └── API Endpoints
-└── Responsive UI Components
+hospital_system/
+├── Frontend/                          # React Application
+│   ├── src/
+│   │   ├── components/                # Reusable UI components
+│   │   │   ├── ChatInterface.jsx
+│   │   │   ├── RecommendationCard.jsx
+│   │   │   └── BookingForm.jsx
+│   │   ├── pages/                     # Page components
+│   │   │   ├── HomePage.jsx
+│   │   │   ├── BookingPage.jsx
+│   │   │   └── ConfirmationPage.jsx
+│   │   ├── services/                  # API Integration
+│   │   │   └── api.js                 # API client
+│   │   ├── store/                     # State Management (Zustand)
+│   │   │   └── appointmentStore.js
+│   │   └── App.jsx
+│   ├── public/                        # Static assets
+│   ├── package.json
+│   └── vite.config.js
+│
+├── Backend/                           # FastAPI Application
+│   ├── app/
+│   │   ├── main.py                    # FastAPI app & routes
+│   │   ├── predictor.py               # ML disease prediction
+│   │   ├── scheduler.py               # Appointment scheduling
+│   │   ├── models.py                  # Pydantic data models
+│   │   └── data/
+│   │       ├── rf_disease_model.joblib # Trained ML model
+│   │       ├── Training_updated.csv    # Training data reference
+│   │       └── doctor_registry.json    # Doctor data
+│   ├── requirements.txt
+│   └── venv/                          # Python virtual environment
+│
+├── docs/                              # Documentation
+│   ├── Overview.md
+│   ├── Setup.md
+│   ├── API.md
+│   ├── Architecture.md
+│   └── Deployment.md
+│
+├── start.sh                           # Setup automation
+├── run_system.sh                      # Run automation
+└── README.md
 ```
 
-## 🚀 Features
+---
 
-### Frontend Features
-- **Interactive Symptom Chat**: AI-powered chat interface for symptom analysis
-- **Smart Doctor Recommendations**: AI suggests appropriate doctors based on symptoms
-- **Dual Booking Modes**: 
-  - AI Mode: Automated recommendations
-  - Manual Mode: User-selected doctors
-- **Real-time Validation**: Form validation and error handling
-- **Responsive Design**: Works on desktop and mobile devices
-- **Appointment Management**: Complete booking flow with confirmation
-
-### Backend Features
-- **Disease Prediction**: Machine learning model for symptom analysis
-- **Department Mapping**: Automatic routing to appropriate medical departments
-- **Doctor Level Assessment**: Determines required doctor expertise level
-- **RESTful API**: Complete API with OpenAPI documentation
-- **CORS Support**: Configured for frontend integration
-- **Error Handling**: Comprehensive error responses
-
-## 📸 Screenshots
-
-### Symptom Chat Interface
-![Chat Interface](docs/images/chat-interface.png)
-AI assistant collects symptoms conversationally and recommends a department + doctor seniority level in real time.
-
-### AI-Recommended Booking Flow
-![Booking Flow](docs/images/booking-flow.png)
-Booking form pre-filled with AI recommendations, showing available doctors, qualifications, and time slots.
-
-### Automated Appointment Confirmation
-![Email Confirmation](docs/images/email-confirmation.png)
-Automated email confirmation sent immediately after booking, with doctor, department, date, time, and booking ID.
-
-### Hospital Operations Dashboard
-![Analytics Dashboard](docs/images/analytics-dashboard.png)
-Admin-facing Looker Studio dashboard tracking total appointments, severe case rate, AI booking adoption rate, cancellation rate, and department/doctor workload breakdowns.
-
-## 🔧 Technology Stack
+## 🛠️ Technology Stack
 
 ### Frontend
-- **Framework**: React 18 with Vite
-- **UI Library**: Radix UI components with Tailwind CSS
-- **State Management**: Zustand
-- **HTTP Client**: Fetch API
-- **Routing**: React Router
-- **Icons**: Lucide React
+| Technology | Purpose |
+| ---------- | ------- |
+| **React 18** | UI framework |
+| **Vite** | Build tool & dev server |
+| **Tailwind CSS** | Styling |
+| **Radix UI** | Component library |
+| **Zustand** | State management |
+| **React Router** | Navigation |
+| **Lucide React** | Icons |
 
 ### Backend
-- **Framework**: FastAPI (Python)
-- **Machine Learning**: Scikit-learn, Pandas
-- **Data Processing**: NumPy, Python-Levenshtein
-- **Server**: Uvicorn ASGI server
-- **API Documentation**: OpenAPI/Swagger
+| Technology | Purpose |
+| ---------- | ------- |
+| **FastAPI** | Web framework |
+| **Python 3.8+** | Programming language |
+| **Scikit-learn** | ML models |
+| **Pandas** | Data processing |
+| **NumPy** | Numerical computing |
+| **Uvicorn** | ASGI server |
+| **Pydantic** | Data validation |
+
+### DevOps & Deployment
+| Technology | Purpose |
+| ---------- | ------- |
+| **Docker** | Containerization |
+| **PostgreSQL** | Database (optional) |
+| **Nginx** | Reverse proxy |
+| **GitHub** | Version control |
+
+---
 
 ## 📦 Installation & Setup
 
-### Automatic Setup (Recommended)
+### Quick Start (Automated)
+
 ```bash
-# Clone the repository and navigate to the project directory
+# Clone repository
+git clone https://github.com/RaghavendraDivate/AI-powered-Triage-System.git
 cd hospital_system
 
-# Run the automated setup script
+# Run automated setup
 ./start.sh
 ```
 
 ### Manual Setup
 
 #### Backend Setup
+
 ```bash
 cd Backend
 
 # Create virtual environment
 python3 -m venv venv
-source venv/bin/activate
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
 ```
 
 #### Frontend Setup
+
 ```bash
 cd Frontend
 
 # Install dependencies
 npm install
 
-# Build for production (optional)
+# (Optional) Build for production
 npm run build
 ```
 
+---
+
 ## 🚀 Running the System
 
-### Option 1: Automatic Startup
+### Option 1: Automated Startup
+
 ```bash
-# Start both frontend and backend servers
 ./run_system.sh
 ```
 
+Starts both frontend and backend servers automatically.
+
 ### Option 2: Manual Startup
 
-#### Start Backend Server
+#### Start Backend
+
 ```bash
 cd Backend
 source venv/bin/activate
 python -m uvicorn app.main:app --reload --port 8000
 ```
 
-#### Start Frontend Server
+#### Start Frontend (in new terminal)
+
 ```bash
 cd Frontend
 npm run dev
 ```
 
+---
+
 ## 🌐 Access URLs
 
-- **Frontend Application**: http://localhost:5173
-- **Backend API**: http://localhost:8000
-- **API Documentation**: http://localhost:8000/docs
-- **OpenAPI Spec**: http://localhost:8000/redoc
+| Service | URL |
+| ------- | --- |
+| **Frontend** | http://localhost:5173 |
+| **Backend API** | http://localhost:8000 |
+| **API Docs** | http://localhost:8000/docs |
+| **ReDoc** | http://localhost:8000/redoc |
+
+---
 
 ## 🔄 API Integration
 
-### Key API Endpoints
+### Core Endpoints
 
-#### Disease Prediction
+#### 1. Disease Prediction
+
 ```http
 POST /predict
 Content-Type: application/json
@@ -149,183 +274,186 @@ Content-Type: application/json
   "symptoms": ["headache", "fever", "nausea"],
   "patient_id": "optional-id"
 }
+
+Response:
+{
+  "predicted_disease": "Common Cold",
+  "confidence": 0.87,
+  "recommended_department": "General Medicine",
+  "doctor_level": "junior",
+  "severity": "mild"
+}
 ```
 
-#### Book Appointment
+#### 2. Get Departments
+
+```http
+GET /departments
+
+Response:
+[
+  {"id": 1, "name": "General Medicine", "doctors": 5},
+  {"id": 2, "name": "Neurology", "doctors": 3},
+  ...
+]
+```
+
+#### 3. Book Appointment
+
 ```http
 POST /book
 Content-Type: application/json
 
 {
   "department": "neurology",
-  "doctor_level": "senior"
+  "doctor_id": 1,
+  "date": "2024-12-25",
+  "time": "10:30",
+  "patient_name": "John Doe",
+  "patient_email": "john@example.com"
+}
+
+Response:
+{
+  "booking_id": "APT-12345",
+  "status": "confirmed",
+  "appointment_date": "2024-12-25",
+  "appointment_time": "10:30",
+  "doctor_name": "Dr. Smith",
+  "confirmation_sent": true
 }
 ```
 
-#### Get Departments
-```http
-GET /departments
-```
-
-### Frontend-Backend Communication
-
-The frontend communicates with the backend through the API service layer (`src/services/api.js`), which handles:
-- HTTP requests with error handling
-- Response data transformation
-- CORS configuration
-- Request/response mapping
+---
 
 ## 🧠 AI Workflow
 
-1. **Symptom Input**: User describes symptoms in chat interface
-2. **Symptom Parsing**: Frontend parses and cleans symptom text
-3. **API Request**: Symptoms sent to backend prediction endpoint
-4. **ML Analysis**: Backend processes symptoms through trained model
-5. **Results**: System returns department, doctor level, and severity
-6. **Booking**: User proceeds with AI-recommended appointment
-
-## 📅 Project Timeline
-
-![Project Gantt Chart](docs/images/project-timeline.png)
-
-Built over ~7 months, covering requirement analysis, dataset collection, ML model integration, backend/frontend development, chatbot integration, testing, and final documentation.
-
-## 📁 Project Structure
-
 ```
-hospital_system/
-├── Frontend/                     # React application
-│   ├── src/
-│   │   ├── components/          # Reusable UI components
-│   │   ├── pages/               # Page components
-│   │   ├── services/            # API integration
-│   │   ├── store/               # State management
-│   │   └── data/                # Static data
-│   ├── public/                  # Static assets
-│   └── dist/                    # Built application
-├── Backend/                     # FastAPI application
-│   ├── app/
-│   │   ├── main.py              # FastAPI app and routes
-│   │   ├── predictor.py         # ML disease prediction
-│   │   ├── scheduler.py         # Appointment scheduling
-│   │   └── data/                # ML model and training data
-│   └── venv/                    # Python virtual environment
-├── start.sh                     # Setup script
-├── run_system.sh               # Run script
-└── README.md                   # Documentation
+1. Symptom Input
+   └─ User describes symptoms in chat
+
+2. Symptom Parsing
+   └─ Frontend extracts and normalizes symptoms
+
+3. API Request
+   └─ Symptoms sent to backend /predict endpoint
+
+4. ML Analysis
+   └─ Scikit-learn model processes symptoms
+
+5. Disease Prediction
+   └─ Model outputs disease class + confidence
+
+6. Department Routing
+   └─ Disease mapped to appropriate department
+
+7. Doctor Level Assessment
+   └─ Severity determines doctor expertise level needed
+
+8. Results Display
+   └─ Recommendations shown to user
+
+9. Booking
+   └─ User confirms and books appointment
 ```
 
-## 🔧 Configuration
+---
 
-### Backend Configuration
-- **Port**: 8000 (configurable via uvicorn)
-- **CORS Origins**: localhost:5173, localhost:3000
-- **Model Path**: `app/data/rf_disease_model.joblib`
-- **Training Data**: `app/data/Training_updated.csv`
+## 🎯 Features Walkthrough
 
-### Frontend Configuration
-- **API Base URL**: http://localhost:8000
-- **Development Port**: 5173
-- **Build Output**: `dist/` directory
+### 📝 Symptom Collection
+1. User enters symptoms conversationally
+2. AI extracts symptom keywords
+3. Sends to backend for analysis
 
-## 🛠️ Development
+### 🤖 AI Recommendation
+1. ML model predicts likely disease
+2. Returns confidence score
+3. Recommends department & doctor level
+4. Assesses severity (mild/moderate/severe)
 
-### Adding New Features
+### 📋 Appointment Booking
+1. User selects booking mode (AI or Manual)
+2. Chooses doctor from recommendations or list
+3. Selects date and time
+4. Enters contact information
+5. Confirms and books appointment
 
-#### Backend (New API Endpoint)
-```python
-@app.post("/new-endpoint")
-async def new_feature(request: RequestModel):
-    # Implementation
-    return {"result": "data"}
-```
+### ✅ Confirmation
+1. Booking confirmed in database
+2. Email confirmation sent
+3. Booking ID provided
+4. Calendar updated
 
-#### Frontend (API Integration)
-```javascript
-// Add to src/services/api.js
-export const hospitalAPI = {
-  // ... existing endpoints
-  newFeature: (data) => request('/new-endpoint', {
-    method: 'POST',
-    body: JSON.stringify(data),
-  }),
-};
-```
+---
 
-### Testing the Integration
+## 📊 Analytics Dashboard
 
-1. **Backend Health Check**: Visit http://localhost:8000/health
-2. **API Documentation**: Check http://localhost:8000/docs
-3. **Frontend Loading**: Ensure http://localhost:5173 loads properly
-4. **Symptom Analysis**: Test chat interface with sample symptoms
-5. **Booking Flow**: Complete an appointment booking
+Looker Studio dashboard tracks:
+- **Total Appointments** — Monthly trends
+- **Severe Case Rate** — Critical cases requiring immediate attention
+- **AI Booking Adoption** — % of bookings made through AI recommendations
+- **Cancellation Rate** — No-show and cancellation metrics
+- **Department Workload** — Appointments by department
+- **Doctor Utilization** — Appointments per doctor
+
+---
+
+## 🎓 Skills Demonstrated
+
+✅ **Full-Stack Development**
+- Frontend: React, Vite, Tailwind CSS, component architecture
+- Backend: FastAPI, REST API design, Python async programming
+- Integration: HTTP clients, API communication, state management
+
+✅ **Machine Learning**
+- Scikit-learn model training and inference
+- Disease classification and prediction
+- Symptom processing and feature extraction
+
+✅ **System Design**
+- Microservices architecture
+- API design principles
+- Error handling and validation
+- Scalable application structure
+
+✅ **DevOps & Deployment**
+- Containerization (Docker)
+- Environment setup and automation
+- Production-ready code structure
+
+---
 
 ## 🐛 Troubleshooting
 
-### Common Issues
-
-#### CORS Errors
-- Ensure backend CORS is configured for frontend URL
-- Check that both servers are running on correct ports
-
-#### API Connection Failed
-- Verify backend server is running on port 8000
-- Check network configuration and firewall settings
-
-#### Module Not Found (Backend)
-```bash
-cd Backend
-source venv/bin/activate
-pip install -r requirements.txt
+### CORS Errors
+```
+✓ Ensure backend CORS is configured for frontend URL
+✓ Check both servers running on correct ports
 ```
 
-#### Dependencies Missing (Frontend)
-```bash
-cd Frontend
-rm -rf node_modules package-lock.json
-npm install
+### API Connection Failed
+```
+✓ Verify backend running: curl http://localhost:8000/docs
+✓ Check firewall and network settings
 ```
 
-### Debug Mode
-- **Backend**: Add `--log-level debug` to uvicorn command
-- **Frontend**: Check browser console for error messages
+### Module Not Found (Backend)
+```bash
+cd Backend && source venv/bin/activate && pip install -r requirements.txt
+```
 
-## 🔒 Security Considerations
+### Dependencies Missing (Frontend)
+```bash
+cd Frontend && rm -rf node_modules && npm install
+```
 
-- Input validation on both frontend and backend
-- Sanitized symptom parsing to prevent injection
-- Secure handling of patient information
-- CORS configured for specific origins only
-
-## 🚀 Deployment
-
-### Production Deployment
-1. Build frontend: `npm run build`
-2. Configure production API URL
-3. Set up proper environment variables
-4. Use production ASGI server (e.g., gunicorn)
-5. Configure reverse proxy (nginx)
+---
 
 ## 📝 License
 
-This project is for educational purposes. Please ensure compliance with healthcare regulations in production use.
+Educational project. Ensure compliance with healthcare regulations for production use.
 
 ---
 
-**Made with ❤️ for better healthcare accessibility through AI**
-
-## 📚 Additional Documentation
-
-For more detailed, task-focused docs, see the `docs/` folder:
-- `docs/Overview.md` – Executive overview and architecture summary
-- `docs/Setup.md` – End-to-end setup and environment files
-- `docs/Environment.md` – All environment variables and ports
-- `docs/Backend.md` – Backend modules, endpoints, data models
-- `docs/Frontend.md` – Routes, components, state management
-- `docs/API.md` – Full API reference with examples
-- `docs/Deployment.md` – Production readiness and deployment options
-- `docs/Troubleshooting.md` – Common issues and resolutions
-- `docs/ClassDiagram.md` – System class diagrams (backend and frontend)
-- `docs/Project_Report.md` – Comprehensive project report following academic guidelines
-
----
+**Made with ❤️ for better healthcare accessibility through AI 🏥💙**
